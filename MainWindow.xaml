@@ -1,0 +1,903 @@
+<Window 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+	c:Ignorable="d"
+	xmlns:FreeCell="clr-namespace:FreeCell"
+  xmlns:system="clr-namespace:System;assembly=mscorlib" 
+	Background="sc#1, 0, 0.1385076, 0.00388189452" 
+	x:Name="DocumentRoot" 
+	Width="640" Height="480" x:Class="FreeCell.MainWindow" Title="Sparkle FreeCell" Loaded="OnWindowLoaded">
+
+	<Window.Resources>
+		<ResourceDictionary>
+			<Storyboard x:Key="OnLoaded"/>
+			<FreeCell:GameModel x:Key="GameModelDS" d:IsDataSource="True"/>
+			<FreeCell:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+      <ControlTemplate x:Key="AceTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102"/>
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="37.9780923341638" Height="48.8889254909401" Canvas.Left="14.6575130756002" Canvas.Top="10.0413913554256"/>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="TwoTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="60">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27.2217260795109" Canvas.Top="-2"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27.2217260795108" Canvas.Top="57">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="ThreeTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102" />
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27.6364344643172" Canvas.Top="-1.9115246618818"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27.6364344643172" Canvas.Top="25.7942130333809"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy5" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27.6364344643172" Canvas.Top="56.5900969055937">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="FourTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102" />
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="13.5785647981263" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="40" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy5" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="13.5785647981263" Canvas.Top="55.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy7" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="40" Canvas.Top="56">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="FiveTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102" />
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="26.5785647981263" Canvas.Top="27"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy5" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="55.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy7" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="56">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="SixTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102" />
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="28"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy3" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="28"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy5" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="55.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy7" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="56">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="SevenTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102" />
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="28"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy3" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="28"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy5" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="55.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy7" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="56">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy4" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27" Canvas.Top="13.7958838722128"/>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="EightTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102" />
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="18"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy3" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="18"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy4" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="36.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy5" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="55.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy6" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="37">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy7" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="56">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="NineTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102" />
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="18"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy3" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="18"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy4" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="36.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy5" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="55.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy6" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="37">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy7" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="56">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy8" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27" Canvas.Top="10.7958838722128"/>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="TenTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="59.4609805293102" />
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="-1.20411612778723"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="18"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy3" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="18"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy4" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="36.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy5" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="12.5785647981263" Canvas.Top="55.7958838722128">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy6" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="37">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy7" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41" Canvas.Top="56">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy8" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27" Canvas.Top="10.7958838722128"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy9" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="27" Canvas.Top="44.7247418016315">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="JackTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Image IsEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" x:Name="jack_PNG1" Width="45.381358920353" Height="71.4515012788537" Canvas.Left="11.1830801485154" Canvas.Top="-1.13039920613053">
+            <Image.Source>
+              <BitmapImage UriSource="pack://application:,,,/CardFaces\jack.PNG"/>
+            </Image.Source>
+          </Image>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="60">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41.2217260795109" Canvas.Top="1"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="13.2217260795108" Canvas.Top="54">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="ErrorDisplayControlTemplate" TargetType="{x:Type Control}">
+        <Border x:Name="Border1" RenderTransformOrigin="0.5,0.5" Background="sc#0, 0.170627564, 0.409959376, 0.467174858" Visibility="Visible" IsHitTestVisible="False" Width="Auto" Height="Auto">
+          <Canvas x:Name="Canvas1" Width="309" Height="195" RenderTransformOrigin="0.5,0.5" Background="sc#0, 0, 0, 0">
+            <TextBlock x:Name="TextBlock1" Text="{Binding Message, Source={StaticResource GameModelDS}, Mode=Default}" Width="219" Height="72" Canvas.Left="50.5" Canvas.Top="63.5" RenderTransformOrigin="0.5,0.5" Foreground="sc#0, 1, 1, 1" FontSize="16" FontWeight="Bold" TextTrimming="CharacterEllipsis" TextWrapping="Wrap"/>
+          </Canvas>
+        </Border>
+        <ControlTemplate.Resources>
+          <Storyboard x:Key="ErrorDisplayAnimation" d:StoryboardName="ErrorDisplayAnimation">
+            <BooleanAnimationUsingKeyFrames Storyboard.TargetName="Border1" Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" BeginTime="00:00:00">
+              <DiscreteBooleanKeyFrame d:KeyEase="Linear;Hold;0.5;0.5;0;0" Value="True" KeyTime="00:00:00"/>
+              <DiscreteBooleanKeyFrame d:KeyEase="Linear;Hold;0.5;0.5;0;0" Value="True" KeyTime="00:00:00.3750000"/>
+              <DiscreteBooleanKeyFrame d:KeyEase="Linear;Hold;0.5;0.5;0;0" Value="True" KeyTime="00:00:01.1250000"/>
+              <DiscreteBooleanKeyFrame d:KeyEase="Linear;Hold;0.5;0.5;0;0" Value="False" KeyTime="00:00:01.4170000"/>
+            </BooleanAnimationUsingKeyFrames>
+            <!--<ColorAnimationUsingKeyFrames Storyboard.TargetName="Border1" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" BeginTime="00:00:00">
+							<SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 0.170627564, 0.409959376, 0.467174858" KeyTime="00:00:00"/>
+							<SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0.3, 0.170627564, 0.409959376, 0.467174858" KeyTime="00:00:00.3750000"/>
+							<SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0.123724654, 0.170627564, 0.409959376, 0.467174858" KeyTime="00:00:01.1250000"/>
+							<SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 0.170627564, 0.409959376, 0.467174858" KeyTime="00:00:01.4170000"/>
+						</ColorAnimationUsingKeyFrames>-->
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Canvas1" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" BeginTime="00:00:00">
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 0, 0, 0" KeyTime="00:00:00"/>
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 0, 0, 0" KeyTime="00:00:00.2500000"/>
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#1, 0, 0, 0" KeyTime="00:00:00.3750000"/>
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#1, 0, 0, 0" KeyTime="00:00:01.1250000"/>
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 0, 0, 0" KeyTime="00:00:01.2500000"/>
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 0, 0, 0" KeyTime="00:00:01.4170000"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="TextBlock1" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" BeginTime="00:00:00">
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 1, 1, 1" KeyTime="00:00:00.3330000"/>
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#1, 1, 1, 1" KeyTime="00:00:00.3750000"/>
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#1, 1, 1, 1" KeyTime="00:00:01.1250000"/>
+              <SplineColorKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 1, 1, 1" KeyTime="00:00:01.1670000"/>
+            </ColorAnimationUsingKeyFrames>
+          </Storyboard>
+        </ControlTemplate.Resources>
+        <ControlTemplate.Triggers>
+          <DataTrigger Binding="{Binding IsValidMove, Source={StaticResource GameModelDS}, Mode=Default}">
+            <DataTrigger.Value>
+              <system:Boolean>False</system:Boolean>
+            </DataTrigger.Value>
+            <DataTrigger.EnterActions>
+              <BeginStoryboard Storyboard="{StaticResource ErrorDisplayAnimation}"/>
+            </DataTrigger.EnterActions>
+          </DataTrigger>
+        </ControlTemplate.Triggers>
+      </ControlTemplate>
+      <ControlTemplate x:Key="QueenTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Image IsEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" x:Name="queen_PNG1" Width="45.3563086937186" Height="71.4120604964931" Canvas.Left="11" Canvas.Top="-1">
+            <Image.Source>
+              <BitmapImage UriSource="pack://application:,,,/CardFaces\queen.PNG"/>
+            </Image.Source>
+          </Image>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="60">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41.2217260795109" Canvas.Top="1"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="13.2217260795108" Canvas.Top="54">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <ControlTemplate x:Key="KingTemplate" TargetType="{x:Type Control}">
+        <Canvas x:Name="Canvas1" RenderTransformOrigin="0.5,0.5" Width="67.5200586846188" Height="69.5200586846188">
+          <Image IsEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" x:Name="king_PNG1" Width="47.3963937409672" Height="70.6017846581433" Canvas.Left="10.2099773429683" Canvas.Top="-0.164677053918851">
+            <Image.Source>
+              <BitmapImage UriSource="pack://application:,,,/CardFaces\king.PNG"/>
+            </Image.Source>
+          </Image>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Stroke="{x:Null}" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="57.366230487534" Canvas.Top="60">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Stroke="{x:Null}" Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle1_Copy1" RenderTransformOrigin="0.5,0.5" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="13.2217260795109" Canvas.Top="2"/>
+          <Rectangle Fill="{TemplateBinding TextElement.Foreground}" StrokeMiterLimit="2" x:Name="Rectangle2_Copy1" RenderTransformOrigin="0.5,0.5" Width="13.6783973100998" Height="14.7247418016315" Canvas.Left="41.2217260795108" Canvas.Top="54">
+            <Rectangle.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </Rectangle.RenderTransform>
+          </Rectangle>
+        </Canvas>
+      </ControlTemplate>
+      <DataTemplate x:Key="CardStacksTemplate">
+        <Grid x:Name="Grid1" Width="79" Height="303.999999999999" Background="{x:Null}">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition/>
+          </Grid.RowDefinitions>
+          <ItemsControl x:Name="CardStackItemsControl" RenderTransformOrigin="0.5,0.5" Margin="1,0,4,0" Width="Auto" Height="Auto" Background="{x:Null}" Template="{DynamicResource ItemsControlControlTemplate2}" ItemsSource="{Binding}" ItemTemplate="{DynamicResource CardTemplate}"/>
+        </Grid>
+      </DataTemplate>
+      <ControlTemplate x:Key="ItemsControlControlTemplate1" TargetType="{x:Type ItemsControl}">
+        <StackPanel x:Name="StackPanel1" RenderTransformOrigin="0.5,0.5" IsItemsHost="True" Orientation="Horizontal"/>
+      </ControlTemplate>
+      <DataTemplate x:Key="CardTemplate">
+        <Grid x:Name="Grid1" RenderTransformOrigin="0.5,0.5" Width="72" Height="100">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition/>
+          </Grid.RowDefinitions>
+          <Rectangle Stroke="#FF000000" Fill="#FFFFFFFF" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RadiusX="3.13988473698333" RadiusY="3.13988473698333"/>
+          <TextBlock Text="{Binding CardName}" x:Name="CardNameUp" Margin="4,2,0,0" VerticalAlignment="Top" Width="13.3882193730532" Height="12.5061817375783" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" FontSize="10"/>
+          <Control x:Name="CardDisplayControl" Margin="2,0,2,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RenderTransformOrigin="0.5,0.5" Template="{DynamicResource EightTemplate}" />
+          <TextBlock Text="{Binding CardName}" x:Name="CardNameDown" Margin="0,0,4,2" VerticalAlignment="Bottom" Width="13.3882193730532" Height="12.5061817375783" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" FontSize="10">
+            <TextBlock.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+                <TranslateTransform X="0" Y="0"/>
+              </TransformGroup>
+            </TextBlock.RenderTransform>
+          </TextBlock>
+        </Grid>
+        <DataTemplate.Triggers>
+          <DataTrigger Binding="{Binding IsSelected}">
+            <DataTrigger.Value>
+              <system:Boolean>True</system:Boolean>
+            </DataTrigger.Value>
+            <Setter Property="Stroke" TargetName="Rectangle1" Value="sc#1, 0.447928816, 0.179582924, 0.179582924"/>
+            <Setter Property="StrokeThickness" TargetName="Rectangle1" Value="2"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding Suite}">
+            <DataTrigger.Value>
+              <FreeCell:Suite>Hearts</FreeCell:Suite>
+            </DataTrigger.Value>
+            <Setter Property="TextElement.Foreground" TargetName="CardDisplayControl" Value="{StaticResource HeartsDrawingBrush}" />
+          </DataTrigger>
+          <DataTrigger Binding="{Binding Suite}">
+            <DataTrigger.Value>
+              <FreeCell:Suite>Spades</FreeCell:Suite>
+            </DataTrigger.Value>
+            <Setter Property="TextElement.Foreground" TargetName="CardDisplayControl" Value="{StaticResource SpadesDrawingBrush}" />
+          </DataTrigger>
+          <DataTrigger Binding="{Binding Suite}">
+            <DataTrigger.Value>
+              <FreeCell:Suite>Clubs</FreeCell:Suite>
+            </DataTrigger.Value>
+            <Setter Property="TextElement.Foreground" TargetName="CardDisplayControl" Value="{StaticResource ClubsDrawingBrush}" />
+          </DataTrigger>
+          <DataTrigger Binding="{Binding Suite}">
+            <DataTrigger.Value>
+              <FreeCell:Suite>Dice</FreeCell:Suite>
+            </DataTrigger.Value>
+            <Setter Property="TextElement.Foreground" TargetName="CardDisplayControl" Value="{StaticResource DiceDrawingBrush}" />
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>1</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource AceTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>2</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource TwoTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>3</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource ThreeTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>4</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource FourTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>5</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource FiveTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>6</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource SixTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>7</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource SevenTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>8</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource EightTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>9</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource NineTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>10</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource TenTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>11</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource JackTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>12</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource QueenTemplate}"/>
+          </DataTrigger>
+          <DataTrigger Binding="{Binding SuiteIndependentCardNumber}">
+            <DataTrigger.Value>
+              <system:Int32>13</system:Int32>
+            </DataTrigger.Value>
+            <Setter Property="Template" TargetName="CardDisplayControl" Value="{StaticResource KingTemplate}"/>
+          </DataTrigger>
+        </DataTemplate.Triggers>
+			</DataTemplate>
+			<ControlTemplate x:Key="ItemsControlControlTemplate2" TargetType="{x:Type ItemsControl}">
+				<Border x:Name="Border1" RenderTransformOrigin="0.5,0.5">
+					<FreeCell:CardStackPanel Background="#00000000"  x:Name="CardStackPanel1" RenderTransformOrigin="0.5,0.5" IsItemsHost="True" ArrangeOffset="20"/>
+				</Border>
+			</ControlTemplate>
+			<DataTemplate x:Key="FreeCellsTemplate">
+				<Border x:Name="Border1" RenderTransformOrigin="0.5,0.5" Width="74" Height="102" BorderBrush="sc#1, 0.146318719, 0.764430165, 0" Background="#00000000" BorderThickness="1,1,1,1">
+          <Border Visibility="{Binding ContainsCard, Converter={StaticResource BoolToVisibilityConverter}}">
+            <ContentControl x:Name="Control1" RenderTransformOrigin="0.5,0.5" Content="{Binding Card}" ContentTemplate="{StaticResource CardTemplate}" IsHitTestVisible="False"/>
+          </Border>
+				</Border>
+			</DataTemplate>
+		</ResourceDictionary>
+	</Window.Resources>
+
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<EventTrigger.Actions>
+				<BeginStoryboard x:Name="OnLoaded_BeginStoryboard" Storyboard="{DynamicResource OnLoaded}"/>
+			</EventTrigger.Actions>
+		</EventTrigger>
+	</Window.Triggers>
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="28.9999999999999"/>
+		</Grid.RowDefinitions>
+		<Rectangle Stroke="{x:Null}" Fill="#FFFFFFFF" StrokeMiterLimit="2" x:Name="Rectangle1" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto"/>
+		<TextBlock x:Name="TextBlock1" Text="Time taken:" Grid.Row="1" Margin="0,5,63,7" HorizontalAlignment="Right" Width="106.556666666667" Height="Auto" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" FontSize="14" Visibility="{Binding IsValidGame, Source={StaticResource GameModelDS}, Converter={StaticResource BoolToVisibilityConverter}, Mode=Default}" VerticalAlignment="Stretch" Grid.RowSpan="1"/>
+		<TextBlock x:Name="TextBlock2" Text="{Binding TimeElapsed, Source={StaticResource GameModelDS}, Mode=Default}" Grid.Row="1" Margin="0,5,20,0" HorizontalAlignment="Right" Width="60.76" Height="Auto" RenderTransformOrigin="0.5,0.5" FontSize="14" Visibility="{Binding IsValidGame, Source={StaticResource GameModelDS}, Converter={StaticResource BoolToVisibilityConverter}, Mode=Default}" VerticalAlignment="Stretch" Grid.RowSpan="1"/>
+		<Button x:Name="Button1" Content="Start New Game" Grid.Row="1" Margin="2,4,0,3" HorizontalAlignment="Left" Width="101" Height="Auto" RenderTransformOrigin="0.5,0.5" Command="{Binding NewGame, Source={StaticResource GameModelDS}}"/>
+		<Viewbox x:Name="Viewbox1" Margin="0,0,0,0" Width="Auto" Height="Auto" RenderTransformOrigin="0.5,0.5">
+			<Grid x:Name="CardAreaGrid" Margin="0,0,0,0" Width="640" Height="451" RenderTransformOrigin="0.5,0.5" RowSpan="1" MouseUp="OnCardAreaMouseClick">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<ItemsControl x:Name="CardStackBaseItemsControl" Grid.Row="0" Margin="4,141.000000000002,4,3.00000000000011" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" RenderTransformOrigin="0.5,0.5" ItemsSource="{Binding CardStacks, Source={StaticResource GameModelDS}, Mode=Default}" ItemTemplate="{DynamicResource CardStacksTemplate}" Template="{DynamicResource ItemsControlControlTemplate1}">
+					<ItemsControl.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="0" Y="0"/>
+							<ScaleTransform ScaleX="1" ScaleY="1"/>
+							<SkewTransform AngleX="0" AngleY="0"/>
+							<RotateTransform Angle="0"/>
+							<TranslateTransform X="0" Y="0"/>
+							<TranslateTransform X="0" Y="0"/>
+						</TransformGroup>
+					</ItemsControl.RenderTransform>
+				</ItemsControl>
+				<ItemsControl x:Name="FreeCellsItemsControl" Margin="4,29.0000000000028,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="297" Height="103.000000000002" RenderTransformOrigin="0.5,0.5" ItemsSource="{Binding FreeCells, Source={StaticResource GameModelDS}, Mode=Default}" ItemTemplate="{DynamicResource FreeCellsTemplate}" Template="{DynamicResource ItemsControlControlTemplate1}"/>
+				<ItemsControl x:Name="HomeCellsItemsControl" Margin="0,29,5,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="297" Height="103" RenderTransformOrigin="0.5,0.5" ItemsSource="{Binding HomeCells, Source={StaticResource GameModelDS}, Mode=Default}" ItemTemplate="{DynamicResource FreeCellsTemplate}" Template="{DynamicResource ItemsControlControlTemplate1}"/>
+			</Grid>
+		</Viewbox>
+		<Control x:Name="ErrorDisplayControl" Grid.RowSpan="2" Margin="0,0,0,0" Width="Auto" Height="Auto" RenderTransformOrigin="0.5,0.5" Template="{DynamicResource ErrorDisplayControlTemplate}"/>
+	</Grid>
+</Window>

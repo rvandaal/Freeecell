@@ -1,0 +1,204 @@
+<Application
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:c="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+	x:Class="FreeCell.MainApplication"
+	StartupUri="MainWindow.xaml">
+	<Application.Resources>
+		<ResourceDictionary>
+			<DrawingBrush x:Key="DiceDrawingBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+          <DrawingGroup>
+            <DrawingGroup.Children>
+              <DrawingCollection>
+                <GeometryDrawing Brush="sc#1, 1, 0, 0">
+                  <GeometryDrawing.Geometry>
+                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,66,66"/>
+                  </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+              </DrawingCollection>
+            </DrawingGroup.Children>
+            <DrawingGroup.Transform>
+              <MatrixTransform Matrix="0.694424322800441,0.719565743975594,-0.719565743975594,0.694424322800441,49.82966689878,4.33832779639087"/>
+            </DrawingGroup.Transform>
+          </DrawingGroup>
+        </DrawingBrush.Drawing>
+      </DrawingBrush>
+      <DrawingBrush x:Key="HeartsDrawingBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+          <DrawingGroup>
+            <DrawingGroup.Children>
+              <DrawingCollection>
+                <GeometryDrawing Brush="sc#1, 1, 0, 0">
+                  <GeometryDrawing.Geometry>
+                    <PathGeometry>
+                      <PathGeometry.Transform>
+                        <MatrixTransform Matrix="1.06423086630985,0,0,0.915707121327904,-12.8693220940028,2.121401205486"/>
+                      </PathGeometry.Transform>
+                      <PathGeometry.Figures>
+                        <PathFigureCollection>
+                          <PathFigure StartPoint="54.3272619081839,21.171233291382" IsClosed="True">
+                            <BezierSegment IsStroked="True" Point1="52.404616491499,28.4768514816446" Point2="36.4306441353814,-22.8496037143703" Point3="15,10"/>
+                            <BezierSegment Point1="-1.00447343450451,34.5321888907975" Point2="54.28390989107,97.2761459805502" Point3="54.28390989107,97.2761459805502"/>
+                            <BezierSegment Point1="54.28390989107,97.2761459805502" Point2="95.9751230740607,49.1333776802307" Point3="93.767427052971,27.4136979424248"/>
+                            <BezierSegment IsStroked="True" Point1="89.9904349671507,-9.74497684458277" Point2="63.1494293852476,-12.3510098839125" Point3="54.3272619081839,21.171233291382"/>
+                          </PathFigure>
+                        </PathFigureCollection>
+                      </PathGeometry.Figures>
+                    </PathGeometry>
+                  </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+              </DrawingCollection>
+            </DrawingGroup.Children>
+            <DrawingGroup.Transform>
+              <MatrixTransform Matrix="1,0,0,1,6.09869824479521,3.80214308168069"/>
+            </DrawingGroup.Transform>
+          </DrawingGroup>
+        </DrawingBrush.Drawing>
+      </DrawingBrush>
+      <DrawingBrush x:Key="SpadesDrawingBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+          <DrawingGroup>
+            <DrawingGroup.Children>
+              <DrawingCollection>
+                <DrawingGroup>
+                  <DrawingGroup.Children>
+                    <DrawingCollection>
+                      <GeometryDrawing Brush="#FF000000">
+                        <GeometryDrawing.Geometry>
+                          <PathGeometry>
+                            <PathGeometry.Transform>
+                              <MatrixTransform Matrix="1.2005360185413,0,0,0.74290647262275,-15.4213331426041,4.30282559204793"/>
+                            </PathGeometry.Transform>
+                            <PathGeometry.Figures>
+                              <PathFigureCollection>
+                                <PathFigure StartPoint="54.3272619081839,21.171233291382" IsClosed="True">
+                                  <BezierSegment IsStroked="True" Point1="52.404616491499,28.4768514816446" Point2="37.37029524237,-33.9155120962164" Point3="15,10"/>
+                                  <BezierSegment Point1="1.70482148401446,36.0999940597236" Point2="54.28390989107,97.2761459805502" Point3="54.28390989107,97.2761459805502"/>
+                                  <BezierSegment Point1="54.28390989107,97.2761459805502" Point2="90.9301044657286,53.0993603384295" Point3="93.767427052971,27.4136979424248"/>
+                                  <BezierSegment IsStroked="True" Point1="97.8683020087783,-9.71062839139266" Point2="63.1494293852476,-12.3510098839125" Point3="54.3272619081839,21.171233291382"/>
+                                </PathFigure>
+                              </PathFigureCollection>
+                            </PathGeometry.Figures>
+                          </PathGeometry>
+                        </GeometryDrawing.Geometry>
+                      </GeometryDrawing>
+                    </DrawingCollection>
+                  </DrawingGroup.Children>
+                  <DrawingGroup.Transform>
+                    <MatrixTransform Matrix="1,0,0,-1,1.82096142051464,76.8628355074364"/>
+                  </DrawingGroup.Transform>
+                </DrawingGroup>
+                <DrawingGroup>
+                  <DrawingGroup.Children>
+                    <DrawingCollection>
+                      <GeometryDrawing Brush="#FF000000">
+                        <GeometryDrawing.Geometry>
+                          <PathGeometry>
+                            <PathGeometry.Transform>
+                              <MatrixTransform Matrix="1.04372667812732,0,0,1.89649173837283,-28.1806203094375,30.4190998146494"/>
+                            </PathGeometry.Transform>
+                            <PathGeometry.Figures>
+                              <PathFigureCollection>
+                                <PathFigure StartPoint="43,14.9999999999999" IsClosed="True">
+                                  <LineSegment IsStroked="True" Point="27,-14.0000000000001"/>
+                                  <BezierSegment IsStroked="True" Point1="27,-14.0000000000001" Point2="40.2000223445924,-18.5892552758437" Point3="60,-14.0000000000001"/>
+                                </PathFigure>
+                              </PathFigureCollection>
+                            </PathGeometry.Figures>
+                          </PathGeometry>
+                        </GeometryDrawing.Geometry>
+                      </GeometryDrawing>
+                    </DrawingCollection>
+                  </DrawingGroup.Children>
+                  <DrawingGroup.Transform>
+                    <MatrixTransform Matrix="1,0,0,-1,33.3580884792747,99.4407509300662"/>
+                  </DrawingGroup.Transform>
+                </DrawingGroup>
+              </DrawingCollection>
+            </DrawingGroup.Children>
+          </DrawingGroup>
+        </DrawingBrush.Drawing>
+      </DrawingBrush>
+		  <DrawingBrush x:Key="ClubsDrawingBrush" Stretch="Uniform">
+			  <DrawingBrush.Drawing>
+				  <DrawingGroup>
+					  <DrawingGroup.Children>
+						  <DrawingCollection>
+							  <DrawingGroup>
+								  <DrawingGroup.Children>
+									  <DrawingCollection>
+										  <GeometryDrawing Brush="#FF000000">
+											  <GeometryDrawing.Geometry>
+												  <EllipseGeometry RadiusX="21" RadiusY="22.00000000000005" Center="21,22.0000000000001"/>
+											  </GeometryDrawing.Geometry>
+										  </GeometryDrawing>
+									  </DrawingCollection>
+								  </DrawingGroup.Children>
+								  <DrawingGroup.Transform>
+									  <MatrixTransform Matrix="1,0,0,1,26,1.99999999999989"/>
+								  </DrawingGroup.Transform>
+							  </DrawingGroup>
+							  <DrawingGroup>
+								  <DrawingGroup.Children>
+									  <DrawingCollection>
+										  <GeometryDrawing Brush="#FF000000">
+											  <GeometryDrawing.Geometry>
+												  <EllipseGeometry RadiusX="24" RadiusY="21.49999999999995" Center="24,21.5"/>
+											  </GeometryDrawing.Geometry>
+										  </GeometryDrawing>
+									  </DrawingCollection>
+								  </DrawingGroup.Children>
+								  <DrawingGroup.Transform>
+									  <MatrixTransform Matrix="1,0,0,1,4,33.0000000000001"/>
+								  </DrawingGroup.Transform>
+							  </DrawingGroup>
+							  <DrawingGroup>
+								  <DrawingGroup.Children>
+									  <DrawingCollection>
+										  <GeometryDrawing Brush="#FF000000">
+											  <GeometryDrawing.Geometry>
+												  <EllipseGeometry RadiusX="21.5" RadiusY="21.49999999999995" Center="21.5,21.5"/>
+											  </GeometryDrawing.Geometry>
+										  </GeometryDrawing>
+									  </DrawingCollection>
+								  </DrawingGroup.Children>
+								  <DrawingGroup.Transform>
+									  <MatrixTransform Matrix="1,0,0,1,48,33.0000000000001"/>
+								  </DrawingGroup.Transform>
+							  </DrawingGroup>
+							  <DrawingGroup>
+								  <DrawingGroup.Children>
+									  <DrawingCollection>
+										  <GeometryDrawing Brush="#FF000000">
+											  <GeometryDrawing.Geometry>
+												  <PathGeometry>
+													  <PathGeometry.Transform>
+														  <MatrixTransform Matrix="1.59090905941345,0,0,0.999999999999999,-63.6518621848029,-57"/>
+													  </PathGeometry.Transform>
+													  <PathGeometry.Figures>
+														  <PathFigureCollection>
+															  <PathFigure StartPoint="50.0571428571429,57.0000000000001" IsClosed="True">
+																  <LineSegment IsStroked="True" Point="40.0097413193468,95.542414343158"/>
+																  <LineSegment IsStroked="True" Point="62.0097413193468,94.542414343158"/>
+															  </PathFigure>
+														  </PathFigureCollection>
+													  </PathGeometry.Figures>
+												  </PathGeometry>
+											  </GeometryDrawing.Geometry>
+										  </GeometryDrawing>
+									  </DrawingCollection>
+								  </DrawingGroup.Children>
+								  <DrawingGroup.Transform>
+									  <MatrixTransform Matrix="1,0,0,1,33.0155007615685,57"/>
+								  </DrawingGroup.Transform>
+							  </DrawingGroup>
+						  </DrawingCollection>
+					  </DrawingGroup.Children>
+				  </DrawingGroup>
+			  </DrawingBrush.Drawing>
+		  </DrawingBrush>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

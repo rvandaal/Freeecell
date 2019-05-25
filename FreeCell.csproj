@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
+    <DefaultClrNameSpace>FreeCell</DefaultClrNameSpace>
+    <AssemblyName>FreeCell</AssemblyName>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <ApplicationVersion>1.0.0.*</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <UICulture>en-US</UICulture>
+    <ManifestCertificateThumbprint>49A693ABA1933781DB9C0C26C8EB8D61406D2ADD</ManifestCertificateThumbprint>
+    <ManifestKeyFile>test_TemporaryKey.pfx</ManifestKeyFile>
+    <WinFXAssemblyDirectory>C:\WINDOWS\Microsoft.NET\Windows\v6.0.5070\</WinFXAssemblyDirectory>
+    <OutputType>WinExe</OutputType>
+    <GenerateManifests Condition="'$(SignManifests)'=='True'">True</GenerateManifests>
+    <ProjectGuid>{837B7CB9-0FCC-49D0-AD57-00B45FA0D99F}</ProjectGuid>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <InteractiveDesigner>
+      <ProjectExtensions xmlns="">
+        <Version>0.03</Version>
+        <IncrementRevision>True</IncrementRevision>
+      </ProjectExtensions>
+    </InteractiveDesigner>
+    <VisualStudio />
+  </ProjectExtensions>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Application.xaml.cs">
+      <DependentUpon>Application.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BoolToVisibilityConverter.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="CardStackPanel.cs" />
+    <Compile Include="Cell.cs" />
+    <Compile Include="GameModel.cs" />
+    <Compile Include="RandomCardGenerator.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="CardFaces\jack.PNG" />
+    <Resource Include="CardFaces\king.PNG" />
+    <Resource Include="CardFaces\queen.PNG" />
+  </ItemGroup>
+</Project>
